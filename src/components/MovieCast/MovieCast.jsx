@@ -31,11 +31,20 @@ const MovieCast = ({ movieId }) => {
 
   return (
     <div>
-      <h5>Cast</h5>
+      <h4>Cast</h4>
       <ul>
         {cast.map((actor) => (
           <li key={actor.cast_id}>
-            {actor.name} as {actor.character}
+            <div>
+              <img
+                src={`https://image.tmdb.org/t/p/w500/${actor.profile_path}`}
+                alt="Profile photo"
+                width={150}
+              />
+              <p>
+                {actor.name} as {actor.character}
+              </p>
+            </div>
           </li>
         ))}
       </ul>

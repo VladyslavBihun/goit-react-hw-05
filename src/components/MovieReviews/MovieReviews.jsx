@@ -31,11 +31,11 @@ const MovieReviews = ({ movieId }) => {
 
   return (
     <div>
-      <h3>Reviews</h3>
+      <h4>Reviews</h4>
       <ul>
         {reviews.map((review) => (
           <li key={review.id}>
-            <h4>{review.author}</h4>
+            <h5>{review.author}</h5>
             <p>{review.content}</p>
           </li>
         ))}

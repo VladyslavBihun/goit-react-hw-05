@@ -1,24 +1,25 @@
 // MovieList.jsx
 
 import { useEffect, useState } from "react";
-import { getTrendingMovies } from "../../tmdbApi";
 import { Link } from "react-router-dom";
 
-const MovieList = () => {
-  const [movies, setMovies] = useState([]);
+const MovieList = ({ fetchMovies, moviesProp }) => {
+  const [movies, setMovies] = useState(moviesProp || []);
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const trendingMovies = await getTrendingMovies();
-        setMovies(trendingMovies);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+    if (fetchMovies) {
+      const fetch = async () => {
+        try {
+          const moviesData = await fetchMovies();
+          setMovies(moviesData);
+        } catch (error) {
+          console.log(error);
+        }
+      };
 
-    fetchMovies();
-  }, []);
+      fetch();
+    }
+  }, [fetchMovies]);
 
   return (
     <div>
