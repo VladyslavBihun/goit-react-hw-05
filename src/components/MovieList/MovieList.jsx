@@ -1,5 +1,8 @@
+// MovieList.jsx
+
 import { useEffect, useState } from "react";
 import { getTrendingMovies } from "../../tmdbApi";
+import { Link } from "react-router-dom";
 
 const MovieList = () => {
   const [movies, setMovies] = useState([]);
@@ -15,16 +18,14 @@ const MovieList = () => {
     };
 
     fetchMovies();
-  }),
-    [];
+  }, []);
 
   return (
     <div>
-      <h1>Trending today</h1>
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
-            <p>{movie.title}</p>
+            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
           </li>
         ))}
       </ul>

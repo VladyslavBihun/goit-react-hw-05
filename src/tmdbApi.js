@@ -1,3 +1,5 @@
+// tmdbApi.js
+
 import axios from "axios";
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3/";
@@ -28,7 +30,7 @@ export const getMovieBySearchWord = async (query) => {
 };
 
 export const getMovieDetails = async (id) => {
-  const response = await axios.get("movie/${id}", {
+  const response = await axios.get(`movie/${id}`, {
     params: {
       language: "en-US",
     },
@@ -37,7 +39,7 @@ export const getMovieDetails = async (id) => {
 };
 
 export const getMovieCredits = async (id) => {
-  const response = await axios.get("movie/${id}/credits", {
+  const response = await axios.get(`movie/${id}/credits`, {
     params: {
       language: "en-US",
     },
@@ -46,7 +48,7 @@ export const getMovieCredits = async (id) => {
 };
 
 export const getMovieReviews = async (id) => {
-  const response = await axios.get("movie/${id}/reviews", {
+  const response = await axios.get(`movie/${id}/reviews`, {
     params: {
       language: "en-US",
       page: "1",
