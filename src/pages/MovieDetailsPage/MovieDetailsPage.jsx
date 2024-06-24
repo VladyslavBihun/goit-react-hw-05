@@ -1,5 +1,3 @@
-// MovieDetailsPage.jsx
-
 import { useEffect, useState } from "react";
 import { Link, Route, Routes, useParams, useLocation } from "react-router-dom";
 import { getMovieDetails } from "../../tmdbApi";

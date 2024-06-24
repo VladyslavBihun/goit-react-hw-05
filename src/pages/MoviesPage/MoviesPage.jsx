@@ -1,5 +1,3 @@
-// MoviesPage.jsx
-
 import { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getMovieBySearchWord } from "../../tmdbApi";

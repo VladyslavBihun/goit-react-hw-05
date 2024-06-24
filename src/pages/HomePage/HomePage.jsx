@@ -1,5 +1,3 @@
-// HomePage.jsx
-
 import { getTrendingMovies } from "../../tmdbApi";
 import MovieList from "../../components/MovieList/MovieList";
 import css from "./HomePage.module.css";

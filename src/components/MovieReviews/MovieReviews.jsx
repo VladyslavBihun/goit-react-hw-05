@@ -1,5 +1,3 @@
-// MovieReviews.jsx
-
 import { useEffect, useState } from "react";
 import { getMovieReviews } from "../../tmdbApi";
 

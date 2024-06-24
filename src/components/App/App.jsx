@@ -1,5 +1,3 @@
-// App.jsx
-
 import { Route, Routes } from "react-router-dom";
 import Navigation from "../Navigation/Navigation";
 import HomePage from "../../pages/HomePage/HomePage";

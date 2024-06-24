@@ -1,5 +1,3 @@
-// MovieCast.jsx
-
 import { useEffect, useState } from "react";
 import { getMovieCredits } from "../../tmdbApi";
 
