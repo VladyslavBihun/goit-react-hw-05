@@ -6,11 +6,14 @@ import { getMovieDetails } from "../../tmdbApi";
 import MovieCast from "../../components/MovieCast/MovieCast";
 import MovieReviews from "../../components/MovieReviews/MovieReviews";
 import css from "./MovieDetailsPage.module.css";
+import BackLink from "../../components/BackLink/BackLink";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
+  const location = useLocation();
+  const goBackLink = location.state ?? "/";
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -36,6 +39,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
+      <BackLink to={goBackLink}></BackLink>
       <div className={css.wrapper}>
         <img
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

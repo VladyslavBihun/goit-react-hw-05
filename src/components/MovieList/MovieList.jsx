@@ -1,10 +1,11 @@
 // MovieList.jsx
 
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const MovieList = ({ fetchMovies, moviesProp }) => {
   const [movies, setMovies] = useState(moviesProp || []);
+  const location = useLocation();
 
   useEffect(() => {
     if (fetchMovies) {
@@ -26,7 +27,9 @@ const MovieList = ({ fetchMovies, moviesProp }) => {
       <ul>
         {movies.map((movie) => (
           <li key={movie.id}>
-            <Link to={`/movies/${movie.id}`}>{movie.title}</Link>
+            <Link to={`/movies/${movie.id}`} state={location}>
+              {movie.title}
+            </Link>
           </li>
         ))}
       </ul>
