@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { getMovieReviews } from "../../tmdbApi";
+import { useParams } from "react-router-dom";
 
-const MovieReviews = ({ movieId }) => {
+const MovieReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { movieId } = useParams();
 
   useEffect(() => {
     const fetchReviews = async () => {

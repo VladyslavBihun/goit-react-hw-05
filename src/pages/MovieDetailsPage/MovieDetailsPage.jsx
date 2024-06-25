@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, Route, Routes, useParams, useLocation } from "react-router-dom";
 import { getMovieDetails } from "../../tmdbApi";
 import MovieCast from "../../components/MovieCast/MovieCast";
@@ -11,7 +11,7 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const location = useLocation();
-  const goBackLink = location.state ?? "/";
+  const locationRef = useRef(location.state?.from ?? "/");
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -37,7 +37,7 @@ const MovieDetailsPage = () => {
 
   return (
     <div>
-      <BackLink to={goBackLink}></BackLink>
+      <BackLink to={locationRef.current}></BackLink>
       <div className={css.wrapper}>
         <img
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
@@ -69,8 +69,8 @@ const MovieDetailsPage = () => {
       </div>
       <hr />
       <Routes>
-        <Route path="cast" element={<MovieCast movieId={movieId} />} />
-        <Route path="reviews" element={<MovieReviews movieId={movieId} />} />
+        <Route path="cast" element={<MovieCast />} />
+        <Route path="reviews" element={<MovieReviews />} />
       </Routes>
     </div>
   );

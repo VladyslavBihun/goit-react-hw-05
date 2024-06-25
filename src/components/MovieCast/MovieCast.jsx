@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { getMovieCredits } from "../../tmdbApi";
+import { useParams } from "react-router-dom";
 
-const MovieCast = ({ movieId }) => {
+const MovieCast = () => {
   const [cast, setCast] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { movieId } = useParams();
 
   useEffect(() => {
     const fetchCast = async () => {
