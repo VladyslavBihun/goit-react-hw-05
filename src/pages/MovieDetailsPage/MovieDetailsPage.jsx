@@ -1,8 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-import { Link, Route, Routes, useParams, useLocation } from "react-router-dom";
+import { Link, useParams, useLocation, Outlet } from "react-router-dom";
 import { getMovieDetails } from "../../tmdbApi";
-import MovieCast from "../../components/MovieCast/MovieCast";
-import MovieReviews from "../../components/MovieReviews/MovieReviews";
 import css from "./MovieDetailsPage.module.css";
 import BackLink from "../../components/BackLink/BackLink";
 
@@ -68,10 +66,7 @@ const MovieDetailsPage = () => {
         <Link to={`/movies/${movieId}/reviews`}>Reviews</Link>
       </div>
       <hr />
-      <Routes>
-        <Route path="cast" element={<MovieCast />} />
-        <Route path="reviews" element={<MovieReviews />} />
-      </Routes>
+      <Outlet />
     </div>
   );
 };
